@@ -9,9 +9,10 @@ def translate (w):
     if w in data:
         return data[w]
     
-    elif w.capitalize() in data:
-        return data[w.capitalize()]
-    
+    elif w.title() in data:
+        return data[w.title()]
+    elif w.upper() in data: #in case user enters words like USA or NATO
+        return data[w.upper()]
     
     elif len(get_close_matches(w, data.keys()))>0:
         yn =input( "Did you mean %s instead? Enter Y if yes or N if no." % get_close_matches(w, data.keys())[0])
